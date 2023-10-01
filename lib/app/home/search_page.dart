@@ -1,31 +1,28 @@
 import 'package:flutter/material.dart';
 
-class SecondPage extends StatelessWidget {
-  final String numbers;
+class ResultScreen extends StatelessWidget {
+  final int result;
 
-  const SecondPage({super.key, required this.numbers});
+  const ResultScreen({
+    Key? key,
+    required this.result,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    List<String> numberList = numbers.split(',');
-    List<int> intList = numberList.map((e) => int.parse(e.trim())).toList();
-
-    bool allEven = intList.every((e) => e % 2 == 0);
-    List<int> filteredList = intList.where((e) => e % 2 == (allEven ? 1 : 0)).toList();
-
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Wyfiltrowane liczby'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Wyfiltrowane liczby to: ${filteredList.join(', ')}',
+      appBar: AppBar(title: const Text('Wynik')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Center(
+            child: Text(
+              '$result',
+              style: const TextStyle(fontSize: 100),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

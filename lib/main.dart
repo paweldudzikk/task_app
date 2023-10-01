@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_app/app/home/cubit/number_cubit_cubit.dart';
 import 'package:task_app/app/home/home_page.dart';
 
 void main() {
@@ -6,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: FirstPage(),
+      home: BlocProvider(
+        create: (context) => NumberCubit(),
+        child: FirstPage(),
+      ),
     );
   }
 }
