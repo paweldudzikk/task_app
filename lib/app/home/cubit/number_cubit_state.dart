@@ -1,4 +1,4 @@
-part of 'number_cubit_cubit.dart';
+part of 'number_cubit.dart';
 
 @immutable
 class NumberCubitState {}

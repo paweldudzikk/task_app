@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:task_app/app/home/cubit/number_cubit_cubit.dart';
+import 'package:task_app/app/home/cubit/number_cubit.dart';
 import 'package:task_app/app/home/search_page.dart';
 
 class FirstPage extends StatelessWidget {
