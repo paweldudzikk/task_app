@@ -3,12 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_app/app/home/cubit/number_cubit.dart';
 import 'package:task_app/app/home/search_page.dart';
 
-class FirstPage extends StatelessWidget {
+class HomePage extends StatelessWidget {
   final controller = TextEditingController();
+
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<NumberCubit, NumberCubitState>(
+    return BlocConsumer<NumberCubit, NumberState>(
       listener: (context, state) {
         if (state is NumberCubitResult) {
           Navigator.push(
@@ -42,9 +44,8 @@ class FirstPage extends StatelessWidget {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    BlocProvider.of<NumberCubit>(context).clearError();
-                    BlocProvider.of<NumberCubit>(context)
-                        .findOutlier(controller.text);
+                    context.read<NumberCubit>().clearError();
+                    context.read<NumberCubit>().findOutlier(controller.text);
                   },
                   child: const Text('Wyszukaj'),
                 ),

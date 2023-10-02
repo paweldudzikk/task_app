@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-part 'number_cubit_state.dart';
+part 'number_state.dart';
 
-class NumberCubit extends Cubit<NumberCubitState> {
-  NumberCubit() : super(NumberCubitState());
+class NumberCubit extends Cubit<NumberState> {
+  NumberCubit() : super(NumberInitial());
 
-  Future<void> findOutlier(String inputString) async {
+    Future<void> findOutlier(String inputString) async {
     final input = inputString.split(',').map((e) => int.tryParse(e)).toList();
 
     if (input.length < 3) {
@@ -28,6 +28,7 @@ class NumberCubit extends Cubit<NumberCubitState> {
     emit(NumberCubitResult(result));
   }
  Future<void> clearError() async {
-    emit(NumberCubitState());
+    emit(NumberInitial());
   }
 }
+
