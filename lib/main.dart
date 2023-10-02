@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       home: BlocProvider(
         create: (context) => NumberCubit(),
-        child: FirstPage(),
+        child: HomePage(),
       ),
     );
   }
